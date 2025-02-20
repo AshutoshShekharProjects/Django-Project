@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+<style>
+
+.destination_image{
+width: 300px;
+height: 150px;
+object-fit: cover;
+overflow: hidden;
+}
+
+</style>
+	<!-- Destinations -->
+
+	<div class="destinations" id="destinations">
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<div class="section_subtitle">simply amazing places</div>
+					<div class="section_title"><h2>POPULAR COACHINGS</h2></div>
+				</div>
+			</div>
+			<div class="row destinations_row">
+				<div class="col">
+					<div class="destinations_container item_grid">
+						{% for coachings in coaching %}
+						<!-- COACHINGS -->
+						{% if user.is_authenticated %}
+						<div class="destination item">
+							<div class="destination_image">
+								<img src="{{coachings.img.url}}" alt="">
+								{% if coachings.offer %}
+								<div class="spec_offer text-center"><a href="#">Special Offer</a></div>
+								{% endif %}
+							</div>
+							<div class="destination_content">
+								<div class="destination_title"><a href="{% url 'destinations' %}">{{coachings.name}}</a></div>
+								<div class="destination_subtitle"><p>{{coachings.brief}}</p></div>
+								<!--<div class="destination_price">Rs.{{coachings.price}}</div>-->
+							</div>
+						</div>
+						{% else %}
+						<!-- COACHINGS -->
+						<div class="destination item">
+							<div class="destination_image">
+								<img src="{{coachings.img.url}}" alt="">
+								{% if coachings.offer %}
+								<div class="spec_offer text-center"><a href="#">Special Offer</a></div>
+								{% endif %}
+							</div>
+							<div class="destination_content">
+								<div class="destination_title"><a href="{% url 'login' %}">{{coachings.name}}</a></div>
+								<div class="destination_subtitle"><p>{{coachings.brief}}</p></div>
+								<!--<div class="destination_price">Rs.{{coachings.price}}</div>-->
+							</div>
+						</div>
+						{% endif %}
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+	

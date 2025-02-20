@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="en">
+
+<head>
+	<title>Blue Print</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="My Coaching template project">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+	<link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css'%}" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css'%}">
+</head>
+
+<body>
+
+	<div class="super_container">
+
+		<!-- Header -->
+
+		<header class="header">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="header_content d-flex flex-row align-items-center justify-content-start">
+							<div class="header_content_inner d-flex flex-row align-items-end justify-content-start">
+								<div class="logo"><a href="{% url 'index' %}">My Coaching</a></div>
+								<nav class="main_nav">
+									<ul class="d-flex flex-row align-items-start justify-content-start">
+										<li><a href="{% url 'index' %}">Home</a></li>
+										<li><a href="{% url 'about' %}">About us</a></li>
+										{% if user.is_authenticated %}
+										<li><a href="#">Hello, {{user.first_name}}!</a></li>
+										<li><a href="{% url 'logout' %}">Logout</a></li>
+										{% else %}
+										<li><a href="{% url 'register' %}">Register</a></li>
+										<li><a href="{% url 'login' %}">Login</a></li>
+										{% endif %}
+										<li><a href="{% url 'contact' %}">Contact</a></li>
+									</ul>
+								</nav>
+								<!--<div class="header_phone ml-auto">Call us: </div>-->
+
+								<!-- Hamburger -->
+
+								<div class="hamburger ml-auto">
+									<i class="fa fa-bars" aria-hidden="true"></i>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="header_social d-flex flex-row align-items-center justify-content-start">
+				<ul class="d-flex flex-row align-items-start justify-content-start">
+					<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+				</ul>
+			</div>
+		</header>
+
+		<!-- Menu -->
+
+		<div class="menu">
+			<div class="menu_header d-flex flex-row align-items-center justify-content-start">
+				<div class="menu_logo"><a href="index.html">My Coaching</a></div>
+				<div class="menu_close_container ml-auto">
+					<div class="menu_close">
+						<div></div>
+						<div></div>
+					</div>
+				</div>
+			</div>
+			<div class="menu_content">
+				<ul>
+					<li><a href="{% url 'index' %}">Home</a></li>
+					<li><a href="{% url 'about' %}">About us</a></li>
+					{% if user.is_authenticated %}
+					<li><a href="{% url 'logout' %}">Logout</a></li>
+					{% else %}
+					<li><a href="{% url 'register' %}">Register</a></li>
+					<li><a href="{% url 'login' %}">Login</a></li>
+					{% endif %}
+					<li><a href="{% url 'contact' %}">Contact</a></li>
+				</ul>
+			</div>
+			<div class="menu_social">
+				<div class="menu_phone ml-auto">Call us: </div>
+				<ul class="d-flex flex-row align-items-start justify-content-start">
+					<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- Home -->
+
+		<div class="home">
+
+			<!-- Home Slider -->
+			<div class="home_slider_container">
+				<div class="owl-carousel owl-theme home_slider">
+
+					<!-- Slide -->
+					<div class="owl-item">
+						<div class="background_image" style="background-image:url({% static 'images/image6.jpg'%})">
+						</div>
+						<div class="home_slider_content_container">
+							<div class="container">
+								<div class="row">
+									<div class="col">
+										<div class="home_slider_content">
+											<div class="home_title">
+												<h2>Let's find your Gurukul</h2>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Slide -->
+					<div class="owl-item">
+						<div class="background_image" style="background-image:url({% static 'images/image10.jpg'%})">
+						</div>
+						<div class="home_slider_content_container">
+							<div class="container">
+								<div class="row">
+									<div class="col">
+										<div class="home_slider_content">
+											<div class="home_title">
+												<h2>Let's find your Gurukul</h2>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Slide -->
+					<div class="owl-item">
+						<div class="background_image" style="background-image:url({% static 'images/image11.jpg'%})">
+						</div>
+						<div class="home_slider_content_container">
+							<div class="container">
+								<div class="row">
+									<div class="col">
+										<div class="home_slider_content">
+											<div class="home_title">
+												<h2>Let's find your Gurukul</h2>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="home_page_nav">
+					<ul class="d-flex flex-column align-items-end justify-content-end">
+						<li><a href="#" data-scroll-to="#destinations">Offers<span>01</span></a></li>
+						<!--<li><a href="#" data-scroll-to="#testimonials">Testimonials<span>02</span></a></li>
+					<li><a href="#" data-scroll-to="#news">Latest<span>03</span></a></li>-->
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!-- Search -->
+
+		<<!--<div class="home_search">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="home_search_container">
+							<div class="home_search_title">Search for your coaching</div>
+							<div class="home_search_content">
+								<form action="#" class="home_search_form" id="home_search_form">
+									<div
+										class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
+										<input type="text" class="search_input search_input_1" placeholder="City"
+											required="required">
+										<input type="text" class="search_input search_input_2" placeholder="Course"
+											required="required">
+										<input type="text" class="search_input search_input_3" placeholder="Class"
+											required="required">
+										<button class="home_search_button">search</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>-->
+
+	<!-- Intro -->
+
+	<div class="intro">
+		<div class="intro_background" style="background-image:url({% static 'images/intro.png' %})"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="intro_container">
+						<div class="row">
+
+							<!-- Intro Item -->
+							<div class="col-lg-4 intro_col">
+								<div class="intro_item d-flex flex-row align-items-end justify-content-start">
+									<div class="intro_icon"><img src="{% static 'images/oli.svg' %}" alt=""></div>
+									<div class="intro_content">
+										<div class="intro_title">Top Institutions</div>
+										<div class="intro_subtitle">
+											<p>Find the best Institutions</p>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Intro Item -->
+							<div class="col-lg-4 intro_col">
+								<div class="intro_item d-flex flex-row align-items-end justify-content-start">
+									<div class="intro_icon"><img src="{% static 'images/wallet1.svg' %}" alt=""></div>
+									<div class="intro_content">
+										<div class="intro_title">The Best Prices</div>
+										<div class="intro_subtitle">
+											<p>At best prices</p>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Intro Item -->
+							<div class="col-lg-4 intro_col">
+								<div class="intro_item d-flex flex-row align-items-end justify-content-start">
+									<div class="intro_icon"><img src="{% static 'images/mechanic.svg' %}" alt=""></div>
+									<div class="intro_content">
+										<div class="intro_title">Amazing Services</div>
+										<div class="intro_subtitle">
+											<p>And amazing services!</p>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% block content %}
+
+	{% endblock %}
+	</div>
+	<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+	<script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
+	<script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
+	<script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
+	<script src="{% static 'plugins/Isotope/isotope.pkgd.min.js' %}"></script>
+	<script src="{% static 'plugins/scrollTo/jquery.scrollTo.min.js' %}"></script>
+	<script src="{% static 'plugins/easing/easing.js' %}"></script>
+	<script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+	<script src="{% static 'js/custom.js' %}"></script>
+</body>
+
+</html>
