@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+<title>Destinations</title>
+<style>
+
+img{
+width: 350px;
+height: 200px;
+object-fit: cover;
+overflow: hidden;
+}
+.destination_detail{
+height: 200px;
+overflow: hidden;
+}
+
+</style>
+</head>
+<body>
+	
+
+	<!-- Destinations -->
+
+	<div class="destinations" id="destinations">
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<div class="section_subtitle">simply amazing places</div>
+					<div class="section_title"><h2>Popular Coaching</h2></div>
+				</div>
+			</div>
+			<!--<div class="row destination_sorting_row">
+				<div class="col">
+					<div class="destination_sorting d-flex flex-row align-items-start justify-content-start">
+						<div class="sorting">
+							<ul class="item_sorting">
+								<li>
+									<span class="sorting_text">Sort By</span>
+									<i class="fa fa-chevron-down" aria-hidden="true"></i>
+									<ul>
+										<li class="product_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'><span>Show All</span></li>
+										<li class="product_sorting_btn" data-isotope-option='{ "sortBy": "price" }'><span>Price</span></li>
+										<li class="product_sorting_btn" data-isotope-option='{ "sortBy": "name" }'><span>Name</span></li>
+									</ul>
+								</li>
+								<li>
+									<span class="sorting_text">Categories</span>
+									<i class="fa fa-chevron-down" aria-hidden="true"></i>
+									<ul>
+										<li class="num_sorting_btn"><span>Category</span></li>
+										<li class="num_sorting_btn"><span>Category</span></li>
+										<li class="num_sorting_btn"><span>Category</span></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						<div class="sort_box ml-auto"><i class="fa fa-th" aria-hidden="true"></i></div>
+					</div>
+				</div>
+			</div>-->
+		<div class="destinations" id="destinations">
+			<div class="container">
+				<div class="row destinations_row">
+					<div class="col">
+						<div class="destinations_container item_grid">
+							{% for coachings in coaching %}
+							<!-- Coachings -->
+							{% if user.is_authenticated %}
+							<div class="destination item">
+								<div class="destination_image">
+									<img src="{{coachings.img.url}}" alt="">
+									{% if coachings.offer %}
+									<div class="spec_offer text-center"><a href="#">Special Offer</a></div>
+									{% endif %}
+								</div>
+								<div class="destination_content">
+									<div class="destination_title"><a href="{% url 'destinations' %}">{{coachings.name}}</a></div>
+									<div class="destination_subtitle"><p>({{coachings.brief}})</p></div>
+									<div class="destination_detail"><p>{{coachings.desc}}</p></div>
+									<div class="destination_contact"><p>{{coachings.contact}}</p></div>
+									<div class="destination_price">Rs.{{coachings.price}}</div>
+								</div>
+							</div>
+							{% else %}
+							<!-- Coachings -->
+							<div class="destination item">
+								<div class="destination_image">
+									<img src="{{coachings.img.url}}" alt="">
+									{% if coachings.offer %}
+									<div class="spec_offer text-center"><a href="#">Special Offer</a></div>
+									{% endif %}
+								</div>
+								<div class="destination_content">
+									<div class="destination_title"><a href="{% url 'login' %}">{{coachings.name}}</a></div>
+									<div class="destination_subtitle"><p>({{coachings.brief}})</p></div>
+									<div class="destination_detail"><p>{{coachings.desc}}</p></div>
+									<div class="destination_contact"><p>{{coachings.contact}}</p></div>
+									<div class="destination_price">Rs.{{coachings.price}}</div>
+								</div>
+							</div>
+							{% endif %}
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			<!--<div class="row load_more_row">
+				<div class="col">
+					<div class="button load_more_button"><a href="#">load more</a></div>
+				</div>
+			</div>-->
+		</div>
+	</div>
+
+{% endblock %}
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="styles/bootstrap4/popper.js"></script>
+<script src="styles/bootstrap4/bootstrap.min.js"></script>
+<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="plugins/easing/easing.js"></script>
+<script src="plugins/Isotope/isotope.pkgd.min.js"></script>
+<script src="plugins/parallax-js-master/parallax.min.js"></script>
+<script src="js/destinations.js"></script>
+</body>
+</html>
